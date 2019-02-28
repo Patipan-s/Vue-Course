@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div v-demo="{ color: 'white', text: 'hello!' }" id="root"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="2.js"></script>
+<script>
+Vue.directive('demo', function (el, binding) {
+    console.log(binding.value.color); // => "white"
+    console.log(binding.value.text); // => "hello!"
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="blog-posts-events-demo">
+            <alert-box>
+                Something bad happened.
+            </alert-box>
+        </div>
+        <div id="aaa">
+            <base-input v-bind:label="inputName"></base-input>
+        </div>
+        <div id="components-demo">
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+        </div>
+        <div id="blog-post-demo">
+            <blog-post 
+                v-for="post in posts" 
+                v-bind:key="post.id"
+                v-bind:id="post.id"
+                v-bind:title="post.title">
+            </blog-post>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="main.js"></script>
+    <script src="main1.js"></script>
+    <script src="main2.js"></script>
+    <script src="main3.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tuto">
+        <buttonclicked v-bind:initial_count="0"></buttonclicked>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script>
+    Vue.component('buttonclicked', {
+      props: ["initial_count"],
+      data() {
+          return {
+              count: 0
+          }
+      },
+      data: function() {return {"count": 0} } 
+      ,
+      template: '<button v-on:click="onclick">Clicked {{ count }} times</button>',
+      methods: {
+        "onclick": function() {
+            this.count = this.count + 1;
+        }
+      },
+      mounted: function() {
+        this.count = this.initial_count;
+      }
+    });
+    
+    new Vue({
+      el: '#tuto',
+    });
+    </script>
+</body>
+</html>

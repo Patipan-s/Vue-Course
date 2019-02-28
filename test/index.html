@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="demo">
+            
+
+            <p v-show="show">Now You can see me</p>
+            <button @click.ctrl="onChange()">Change</button>
+            <p v-if="seen">Now you see me</p>
+            <p v-once>{{ fullName }}</p>
+            <p>{{ firstName }}</p>
+            <p v-once>{{ firstName }}</p>
+            
+            <button @click='click()'>Add</button>
+
+            <button v-bind:disabled="isButtonDisabled">Button</button>
+            <a v-bind:href="url"> ... </a>
+
+            <p>{{ a }}</p>
+            <p>{{ expression }}</p>
+            <button @click="Add()">Add</button>
+            <p v-for="item in items">{{ item }}</p>
+            
+        </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#demo',
+        data: {
+            firstName: 'Foo',
+            lastName: 'Bar',
+            isButtonDisabled: '',
+            seen: true,
+            show:true,
+            url: undefined,
+            a: '1',
+            items : [ 'a' , 'b' , 'c' ],
+            toggle: true,
+            pick: "head"
+        },
+        computed: {
+            fullName: {
+                // getter
+                get: function () {
+                    return this.firstName + ' ' + this.lastName
+                },
+                // setter
+                set: function (newValue) {
+                    var names = newValue.split(' ')
+                    this.firstName = names[0]
+                    this.lastName = names[names.length - 1]
+                }
+            },
+            expression: function() {
+                return this.a + this.a
+            }
+        },
+        methods: {
+            click() {
+                this.firstName = this.firstName + ' 1 ';
+                console.log('5555');
+            },
+            Add() {
+                this.a = this.a + 1
+            },
+            onChange() {
+                if (this.show) {
+                    this.show = false;
+                }else{
+                    this.show = true;
+                }
+            }
+        }
+    })
+    </script>
+</body>
+</html>
